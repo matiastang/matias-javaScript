@@ -1,0 +1,29 @@
+{
+  "name": "matias-javascript",
+  "version": "1.0.0",
+  "description": "js学习相关",
+  "main": "index.js",
+  "scripts": {
+    "server": "node server.js",
+    "start": "webpack serve --open chrome",
+    "watch": "webpack --watch",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matiastang/matias-javaScript.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matiastang/matias-javaScript/issues"
+  },
+  "homepage": "https://github.com/matiastang/matias-javaScript#readme",
+  "devDependencies": {
+    "clean-webpack-plugin": "^3.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "webpack": "^5.6.0",
+    "webpack-cli": "^4.2.0"
+  }
+}
