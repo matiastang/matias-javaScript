@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2021-02-05 13:58:08
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-02-05 14:34:19
+ * @LastEditTime: 2021-02-05 14:58:11
  * @Description: html转img或pdf
 -->
 <!-- TOC -->
@@ -55,6 +55,7 @@ wkhtmltoimage -H
 
 * 使用`wkhtmltoimage`时，不要使用`ES6`的语法，反正我没生成成功。
 * `echarts` 最好设置 `animation:false`，不然需要设置延迟时间也可以。
+* 使用`flatMap`时无法生成，换成`map`就可以了。
 * `position`属性使用注意
 
 ```js
