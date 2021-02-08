@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2020-11-24 17:04:01
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-02-08 10:16:16
+ * @LastEditTime: 2021-02-08 13:33:08
  * @Description: file content
  */
 const path = require('path');
@@ -12,7 +12,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 // const ENTRY_PATH = path.resolve(__dirname, 'src') + '/index.js';
 const ENTRY_PATH = path.resolve(__dirname, 'src') + '/mdJS/WebAssembly/hello.js';
 const OUTPUT_PATH = path.resolve(__dirname, 'dist');
-const SEVER_PATH = path.resolve(__dirname, 'src') + '/mdJS/WebAssembly';
+const SEVER_PATH = path.resolve(__dirname, 'src') + '/mdJS/WebAssembly/index';
 console.log(`${ENTRY_PATH}|${OUTPUT_PATH}|${SEVER_PATH}`)
 
 module.exports = {
