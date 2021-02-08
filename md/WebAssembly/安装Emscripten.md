@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2021-02-07 15:42:12
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-02-07 16:23:27
+ * @LastEditTime: 2021-02-08 10:44:22
  * @Description: Emscripten
 -->
 # Emscripten
@@ -113,3 +113,7 @@ source "/Users/matias/matias_emscripten/emsdk/emsdk_env.sh"
 emcc hello.c -s WASM=1 -o hello.html
 
 **提示** ：Firefox 52+ 和 Chrome 57+ 和最新版本的 Opera 已经默认启用，你也可以在 Firefox 47+ 中通过在 about:config 页面启用 javascript.options.wasm 字段获得支持，Chrome 51+ 和 Opera 38+ 可以在 chrome://flags 页面启用 Experimental WebAssembly 选项以支持 WebAssembly。
+
+犹豫`CORS`限制，需要起一个服务才能正常加载`.wasm`文件。
+
+使用`shell_minimal.html`生成`emcc index.c -s WASM=1 -o index.html --shell-file ../html_template/shell_minimal.html`
