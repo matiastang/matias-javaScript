@@ -2,10 +2,12 @@
  * @Author: tangdaoyong
  * @Date: 2021-05-18 16:01:06
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-05-18 16:12:09
+ * @LastEditTime: 2021-05-18 16:14:00
  * @Description: AMD和CMD区别
 -->
 # AMD和CMD区别
+
+[AMD、CMD](http://justineo.github.io/singles/writing-modular-js/)
 
 ## 区别
 1. 对于依赖的模块，AMD 是提前执行，CMD 是延迟执行。不过 RequireJS 从 2.0 开始，也改成可以延迟执行（根据写法不同，处理方式不同）。CMD 推崇 as lazy as possible.
