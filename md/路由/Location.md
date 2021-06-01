@@ -9,9 +9,9 @@
 <!-- TOC -->
 
 - [Location](#location)
-  - [介绍](#介绍)
-  - [属性](#属性)
-  - [方法](#方法)
+    - [介绍](#介绍)
+    - [属性](#属性)
+    - [方法](#方法)
 
 <!-- /TOC -->
 # Location
@@ -25,27 +25,27 @@ Location 接口表示其链接到的对象的位置（URL）。所做的修改�
 ## 属性
 Location 接口不继承任何属性，但是实现了那些来自 URLUtils 的属性。
 
-Location.href
-包含整个URL的一个DOMString
-Location.protocol
+`Location.href`
+包含整个`URL`的一个`DOMString`
+`Location.protocol`
 包含URL对应协议的一个DOMString，最后有一个":"。
-Location.host
+`Location.host`
 包含了域名的一个DOMString，可能在该串最后带有一个":"并跟上URL的端口号。
-Location.hostname
+`Location.hostname`
 包含URL域名的一个DOMString。
-Location.port
+`Location.port`
 包含端口号的一个DOMString。
-Location.pathname
+`Location.pathname`
 包含URL中路径部分的一个DOMString，开头有一个“/"。
-Location.search
+`Location.search`
  包含URL参数的一个DOMString，开头有一个“?”。
-Location.hash
+`Location.hash`
 包含块标识符的DOMString，开头有一个“#”。
-Location.username
+`Location.username`
 包含URL中域名前的用户名的一个DOMString。
-Location.password
+`Location.password`
 包含URL域名前的密码的一个 DOMString。
-Location.origin 只读
+`Location.origin` 只读
 包含页面来源的域名的标准形式DOMString。
 
 ## 方法
