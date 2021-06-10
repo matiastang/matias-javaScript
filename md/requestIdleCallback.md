@@ -2,14 +2,44 @@
  * @Author: tangdaoyong
  * @Date: 2021-05-28 11:47:03
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-05-28 11:51:33
+ * @LastEditTime: 2021-06-10 22:18:32
  * @Description: requestIdleCallback
 -->
 # requestIdleCallback
 
 [requestIdleCallback MDN](https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestIdleCallback)
-[requestIdleCallback](https://zhuanlan.zhihu.com/p/60189423)
+[【重要】requestIdleCallback](https://zhuanlan.zhihu.com/p/60189423)
 [requestIdleCallback polyful](https://link.zhihu.com/?target=https%3A//github.com/facebook/react/blob/master/packages/scheduler/src/forks/SchedulerHostConfig.default.js)
+[【非常重要】requestIdleCallback和requestAnimationFrame详解](https://www.jianshu.com/p/2771cb695c81?tt_from=weixin)
+
+## requestIdleCallback
+
+React 调度算法 与 requestIdleCallback 这个 api 息息相关。requestIdleCallback 的作用是是在浏览器一帧的剩余空闲时间内执行优先度相对较低的任务, 其用法如下:
+```js
+var tasksNum = 10000
+
+requestIdleCallback(unImportWork)
+
+function unImportWork(deadline) {
+  while (deadline.timeRemaining() && tasksNum > 0) {
+    console.log(`执行了${10000 - tasksNum + 1}个任务`)
+    tasksNum--
+  }
+
+  if (tasksNum > 0) { // 在未来的帧中继续执行
+    requestIdleCallback(unImportWork)
+  }
+}
+```
+deadline 有两个参数
+
+timeRemaining(): 当前帧还剩下多少时间
+didTimeout: 是否超时
+另外 requestIdleCallback 后如果跟上第二个参数 {timeout: ...} 则会强制浏览器在当前帧执行完后执行。
+
+## requestIdleCallback 的缺陷
+requestIdleCallback is called only 20 times per second - Chrome on my 6x2 core Linux machine, it's not really useful for UI work。—— from Releasing Suspense
+也就是说 requestIdleCallback 的 FPS 只有 20, 这远远低于页面流畅度的要求！(一般 FPS 为 60 时对用户来说是感觉流程的, 即一帧时间为 16.7 ms), 这也是 React 需要自己实现 requestIdleCallback 的原因。
 
 ## requestHostCallback
 
