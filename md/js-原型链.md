@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2021-01-29 09:22:42
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-01-29 11:29:30
+ * @LastEditTime: 2021-06-11 11:25:36
  * @Description: 原型及原型链
 -->
 # 原型及原型链
@@ -12,12 +12,13 @@
 ![原型链](./imgs/原型链.jpeg)
 
 当你执行：
-
+```js
 var o = new Foo();
-JavaScript 实际上执行的是：
-
+```
+`JavaScript` 实际上执行的是：
+```js
 var o = new Object();
 o.__proto__ = Foo.prototype;
 Foo.call(o);
-
-原生原型不应该被扩展，除非它是为了与新的 JavaScript 特性兼容。
+```
+原生原型不应该被扩展，除非它是为了与新的 `JavaScript` 特性兼容。
