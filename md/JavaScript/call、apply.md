@@ -104,7 +104,7 @@ var fiv = {
 }
 var func = bar.bind(foo).bind(sed).bind(fiv);
 func(); //?
-答案是，两次都仍将输出 3 ，而非期待中的 4 和 5 。原因是，在Javascript中，多次 bind() 是无效的。更深层次的原因， bind() 的实现，相当于使用函数在内部包了一个 call / apply ，第二次 bind() 相当于再包住第一次 bind() ,故第二次以后的 bind 是无法生效的。
+答案是，两次都仍将输出 3 ，而非期待中的 4 和 5 。原因是，在Javascript中，多次 bind() 是无效的。更深层次的原因， `bind()` 的实现，相当于使用函数在内部包了一个 `call / apply` ，第二次 `bind()` 相当于再包住第一次 `bind()` ,故第二次以后的 `bind` 是无法生效的。
 
 apply、call、bind比较
 那么 apply、call、bind 三者相比较，之间又有什么异同呢？何时使用 apply、call，何时使用 bind 呢。简单的一个栗子：
@@ -132,4 +132,5 @@ apply 、 call 、bind 三者都是用来改变函数的this对象的指向的�
 apply 、 call 、bind 三者第一个参数都是this要指向的对象，也就是想指定的上下文；
 apply 、 call 、bind 三者都可以利用后续参数传参；
 bind 是返回对应函数，便于稍后调用；apply 、call 则是立即调用 。
+多次`bind`只有第一次有效。
 bind详细参考地址：《MDN：Function.prototype.bind()》

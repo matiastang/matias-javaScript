@@ -13,11 +13,11 @@ script标签存在两个属性，defer和async，来异步加载js，因此scrip
 
 2. <script async src="example.js"></script>
 
-有了async属性，表示后续文档的加载和渲染与js脚本的加载和执行是并行进行的，即异步执行；
+有了`async`属性，表示后续文档的`加载`和`渲染`与`js脚本`的加载和执行是并行进行的，即异步执行；
 
 3. <script defer src="example.js"></script>
 
-有了defer属性，加载后续文档的过程和js脚本的加载(此时仅加载不执行)是并行进行的(异步)，js脚本的执行需要等到文档所有元素解析完成之后，DOMContentLoaded事件触发执行之前。
+有了`defer`属性，`加载后续文档`的过程和`js脚本的加载`(此时仅加载不执行)是`并行`进行的(`异步`)，`js脚本的执行`需要等到文档所有元素解析完成之后，`DOMContentLoaded`事件触发执行之前。
 
 下面网络图片显示了不同使用的区别：
 

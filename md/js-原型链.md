@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2021-01-29 09:22:42
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-06-11 11:25:36
+ * @LastEditTime: 2021-06-15 11:47:06
  * @Description: 原型及原型链
 -->
 # 原型及原型链
@@ -22,3 +22,12 @@ o.__proto__ = Foo.prototype;
 Foo.call(o);
 ```
 原生原型不应该被扩展，除非它是为了与新的 `JavaScript` 特性兼容。
+
+## instanceof
+
+`instanceof` 运算符用于检测构造函数的 `prototype` 属性是否出现在`某个实例对象`的原型链上。
+
+语法：`object instanceof constructor`
+`object`：某个实例对象
+`constructor`：某个构造函数
+用来检测  `constructor.prototype` 是否存在于参数  `object` 的原型链上。

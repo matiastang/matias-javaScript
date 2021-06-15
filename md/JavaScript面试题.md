@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2021-06-11 14:04:07
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-06-11 15:05:44
+ * @LastEditTime: 2021-06-15 11:23:27
  * @Description: JavaScript题
 -->
 # JavaScript题
@@ -63,13 +63,16 @@ detachEvent('on' + type, handler)
 
 ## 事件是如何实现的？
 
-基于发布订阅模式，就是在浏览器加载的时候会读取事件相关的代码，但是只有实际等到具体的事件触发的时候才会执行。
+基于`发布订阅模式`，就是在浏览器加载的时候会读取事件相关的代码，但是只有实际等到具体的事件触发的时候才会执行。
 比如点击按钮，这是个事件（Event），而负责处理事件的代码段通常被称为事件处理程序（Event Handler），也就是「启动对话框的显示」这个动作。
 在 Web 端，我们常见的就是 DOM 事件：
 * `DOM0 级事件`，直接在 html 元素上绑定 on-event，比如 onclick，取消的话，dom.onclick = null，同一个事件只能有一个处理程序，后面的会覆盖前面的。
 * `DOM2 级事件`，通过 addEventListener 注册事件，通过 removeEventListener 来删除事件，一个事件可以有多个事件处理程序，按顺序执行，捕获事件和冒泡事件
 * `DOM3级事件`，增加了事件类型，比如 UI 事件，焦点事件，鼠标事件
 
+## 闭包产生的本质
+
+当前环境中存在指向父级作用域的引用
 ## 闭包是什么？
 
 [JS 中的闭包是什么？](https://zhuanlan.zhihu.com/p/22486908)
@@ -87,3 +90,56 @@ Peter J. Landin 在1964年讲述语闭包定义为：`一种包含环境成分�
 ### 闭包的作用
 
 闭包常常用来`「间接访问一个变量」`。换句话说，`「隐藏一个变量」`。
+
+### 手写 bind、apply、call
+```js
+// call
+
+Function.prototype.call = function (context, ...args) {
+  context = context || window;
+  
+  const fnSymbol = Symbol("fn");
+  context[fnSymbol] = this;
+  
+  context[fnSymbol](...args);
+  delete context[fnSymbol];
+}
+// apply
+
+Function.prototype.apply = function (context, argsArr) {
+  context = context || window;
+  
+  const fnSymbol = Symbol("fn");
+  context[fnSymbol] = this;
+  
+  context[fnSymbol](...argsArr);
+  delete context[fnSymbol];
+}
+// bind
+
+Function.prototype.bind = function (context, ...args) {
+  context = context || window;
+  const fnSymbol = Symbol("fn");
+  context[fnSymbol] = this;
+  
+  return function (..._args) {
+    args = args.concat(_args);
+    
+    context[fnSymbol](...args);
+    delete context[fnSymbol];   
+  }
+}
+```
+
+### 创建一个包含当前URL参数的对象
+
+```js
+// ES6
+const mtGetURLParameters = url => (url.match(/([^?=&]+)(=([^&]*))/g) || []).reduce((a, v) => ((a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)), a),{});
+
+const mtGetURLParameters = (url) => {
+    (url.match(/([^?=&]+)(=([^&]*))/g) || []).reduce((a, v) => {
+        ((a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)), a)
+    }, {})
+}
+```

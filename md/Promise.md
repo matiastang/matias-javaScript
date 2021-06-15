@@ -2,7 +2,7 @@
  * @Author: tangdaoyong
  * @Date: 2021-02-07 10:06:35
  * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-02-07 11:35:38
+ * @LastEditTime: 2021-06-15 10:06:12
  * @Description: Promise
 -->
 # Promise
@@ -86,3 +86,53 @@ Promise.allSettled()方法返回一个在所有给定的promise都已经fulfille
 ### Promise.prototype.finally()
 
 ### Promise.prototype.then()
+
+## Promise 原理
+```js
+class MyPromise {
+  constructor(fn) {
+    this.resolvedCallbacks = [];
+    this.rejectedCallbacks = [];
+    
+    this.state = 'PENDING';
+    this.value = '';
+    
+    fn(this.resolve.bind(this), this.reject.bind(this));
+    
+  }
+  
+  resolve(value) {
+    if (this.state === 'PENDING') {
+      this.state = 'RESOLVED';
+      this.value = value;
+      
+      this.resolvedCallbacks.map(cb => cb(value));   
+    }
+  }
+  
+  reject(value) {
+    if (this.state === 'PENDING') {
+      this.state = 'REJECTED';
+      this.value = value;
+      
+      this.rejectedCallbacks.map(cb => cb(value));
+    }
+  }
+  
+  then(onFulfilled, onRejected) {
+    if (this.state === 'PENDING') {
+      this.resolvedCallbacks.push(onFulfilled);
+      this.rejectedCallbacks.push(onRejected);
+      
+    }
+    
+    if (this.state === 'RESOLVED') {
+      onFulfilled(this.value);
+    }
+    
+    if (this.state === 'REJECTED') {
+      onRejected(this.value);
+    }
+  }
+}
+```
