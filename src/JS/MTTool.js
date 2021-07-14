@@ -89,7 +89,13 @@ const throttle = (fb, delay) => {
 
 // 如何创建一个包含当前URL参数的对象
 const mtGetURLParameters = url => (url.match(/([^?=&]+)(=([^&]*))/g) || []).reduce((a, v) => ((a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)), a),{});
-
+const mtGetURLParameters = url => {
+    let arr = url.match(/([^?=&]+)(=([^&]*))/g) || [];
+    arr.reduce((a, v) => {
+        a[v.slice(0, v.indexOf('='))] = v.slice(v.indexOf('=') + 1)
+        return a;
+    },{});
+};
 
 // 平滑滚动到页面顶部
 // const scrollToTop = (element) => {
