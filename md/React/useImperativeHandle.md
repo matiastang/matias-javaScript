@@ -2,7 +2,7 @@
  * @Author: matiastang
  * @Date: 2022-07-18 13:56:42
  * @LastEditors: matiastang
- * @LastEditTime: 2022-07-18 14:01:10
+ * @LastEditTime: 2022-07-18 14:35:22
  * @FilePath: /matias-javaScript/md/React/useImperativeHandle.md
  * @Description: 
 -->
@@ -215,6 +215,7 @@ const captchaRef = useRef<{ refresh: () => void} | null>(null)
 if (captchaRef) {
     captchaRef.current && captchaRef.current.refresh()
 }
+
 <CaptchaInput
     ref={captchaRef}
     onChange={(uuid, code) => {
