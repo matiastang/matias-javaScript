@@ -1,12 +1,13 @@
 <!--
  * @Author: tangdaoyong
  * @Date: 2021-02-07 10:06:35
- * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-06-15 10:06:12
+ * @LastEditors: matiastang
+ * @LastEditTime: 2022-07-18 13:55:04
  * @Description: Promise
 -->
 # Promise
 
+[MDN Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/allSettled)
 [MDN Promise](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 [Promise 浏览器兼容性](https://caniuse.com/?search=Promise)
 
