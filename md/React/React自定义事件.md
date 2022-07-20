@@ -2,12 +2,14 @@
  * @Author: matiastang
  * @Date: 2022-07-20 11:14:49
  * @LastEditors: matiastang
- * @LastEditTime: 2022-07-20 11:27:50
+ * @LastEditTime: 2022-07-20 16:33:05
  * @FilePath: /matias-javaScript/md/React/React自定义事件.md
  * @Description: React 自定义事件
 -->
 
 # React 自定义事件
+
+[React里如何给普通dom标签注册自定义事件?](https://segmentfault.com/q/1010000014632851)
 
 ## 在<micro-app>标签所在的文件顶部添加polyfill
 
@@ -124,7 +126,7 @@ ReactDOM.render(
 );
 ```
 
-## CustomEvent
+## CustomEvent | Event
 
 可以使用[CustomEvent](https://developer.mozilla.org/zh-CN/docs/Web/API/CustomEvent/CustomEvent)创建自定义事件
 
