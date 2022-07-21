@@ -1,8 +1,8 @@
 <!--
  * @Author: tangdaoyong
  * @Date: 2021-01-29 09:22:42
- * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-06-15 11:47:06
+ * @LastEditors: matiastang
+ * @LastEditTime: 2022-07-21 11:05:50
  * @Description: 原型及原型链
 -->
 # 原型及原型链
@@ -31,3 +31,7 @@ Foo.call(o);
 `object`：某个实例对象
 `constructor`：某个构造函数
 用来检测  `constructor.prototype` 是否存在于参数  `object` 的原型链上。
+
+**备注**：遵循 ECMAScript 标准，someObject.[[Prototype]] 符号是用于指向 someObject 的原型。从 ECMAScript 6 开始，[[Prototype]] 可以通过 Object.getPrototypeOf() 和 Object.setPrototypeOf() 访问器来访问。这个等同于 JavaScript 的非标准但许多浏览器实现的属性 __proto__。
+
+但它不应该与构造函数 func 的 prototype 属性相混淆。被构造函数创建的实例对象的 [[Prototype]] 指向 func 的 prototype 属性。Object.prototype 属性表示 Object 的原型对象。
