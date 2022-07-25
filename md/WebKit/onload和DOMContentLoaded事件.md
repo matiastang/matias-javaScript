@@ -1,8 +1,8 @@
 <!--
  * @Author: tangdaoyong
  * @Date: 2021-04-27 14:33:20
- * @LastEditors: tangdaoyong
- * @LastEditTime: 2021-04-27 14:38:52
+ * @LastEditors: matiastang
+ * @LastEditTime: 2022-07-25 17:36:40
  * @Description: onload 或者 DOMContentLoaded事件
 -->
 # onload 或者 DOMContentLoaded事件
@@ -34,4 +34,4 @@ window.onload = function() {
 
 ## 原理：
 
-如果是webkit引擎则轮询document的readyState属性，当值为loaded或者complete时则触发DOMContentLoaded事件，对webkit525之后版本直接可以注册DOMContentLoaded事件
+如果是`webkit`引擎则轮询`document`的`readyState`属性，当值为`loaded`或者`complete`时则触发`DOMContentLoaded`事件，对`webkit525`之后版本直接可以注册`DOMContentLoaded`事件

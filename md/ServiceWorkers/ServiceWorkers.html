@@ -2,7 +2,7 @@
  * @Author: matiastang
  * @Date: 2022-07-25 16:09:03
  * @LastEditors: matiastang
- * @LastEditTime: 2022-07-25 16:17:29
+ * @LastEditTime: 2022-07-25 17:56:45
  * @FilePath: /matias-javaScript/md/ServiceWorkers/ServiceWorkers.html
  * @Description: Service Workers 测试
 -->
@@ -15,6 +15,67 @@
     <title>Service Workers 测试</title>
 </head>
 <body>
-     
+    <script>
+        if (!('serviceWorker' in navigator)) {
+            // 浏览器不支持 Service Worker
+            // return;
+        }
+        // window.addEventListener('load', () => {
+        //     // [注册](https://developer.mozilla.org/zh-CN/docs/Web/API/ServiceWorkerContainer/register)
+        //     navigator.serviceWorker.register('./serviceWorker.js', {
+        //         scope: './'
+        //     })
+        //     .then((res) => {
+        //         console.log('注册成功', res)
+        //         var serviceWorker;
+        //         if (registration.installing) {
+        //             serviceWorker = registration.installing;
+        //             document.querySelector('#status').textContent = 'installing';
+        //         } else if (registration.waiting) {
+        //             serviceWorker = registration.waiting;
+        //             document.querySelector('#status').textContent = 'waiting';
+        //         } else if (registration.active) {
+        //             serviceWorker = registration.active;
+        //             document.querySelector('#status').textContent = 'active';
+        //         }
+        //         if (serviceWorker) {
+        //             // logState(serviceWorker.state);
+        //             serviceWorker.addEventListener('statechange', function (e) {
+        //                 // logState(e.target.state);
+        //                 console.log(e.target.state)
+        //             });
+        //         }
+        //     })
+        //     .catch((err) => {
+        //         console.log('注册失败', err)
+        //     })
+        // })
+        if (!('PushManager' in window)) {
+            // 浏览器不支持 Push
+            // return;
+        }
+        const requestPermission = () => {
+            return new Promise((resolve, reject) => {
+                const permissionRes = Notification.requestPermission((res) => {
+                    resolve(res)
+                })
+                if (permissionRes) {
+                    permissionRes.then(resolve, reject)
+                }
+            })
+            .then((res) => {
+                if (res !== 'granted') {
+                    throw new Error('Permission not granted')
+                }
+            })
+        }
+        window.addEventListener('load', () => {
+            requestPermission()
+        })
+    </script>
+    <div id="status"></div>
+    <div>01</div>
+    <div>02</div>
+    <div>03</div>
 </body>
 </html>
