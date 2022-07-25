@@ -1,0 +1,62 @@
+<!--
+ * @Author: matiastang
+ * @Date: 2022-07-25 16:13:48
+ * @LastEditors: matiastang
+ * @LastEditTime: 2022-07-25 16:32:28
+ * @FilePath: /matias-javaScript/md/html/emmet.html
+ * @Description: Emmet 语法
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emmet 语法</title>
+</head>
+<body>
+    <!-- .+类名 快速生成类选择器 .a -->
+    <div class="a"></div>
+    <!-- #+id名 快速生成id选择器 #b -->
+    <div id="b"></div>
+    <!-- 标签+标签 快速生成兄弟级标签 div+img -->
+    <div></div>
+    <img src="" alt="">
+    <!-- 标签>标签 快速生成父子级标签 ul>li -->
+    <ul>
+        <li></li>
+    </ul>
+    <!-- 上级 ul>li^bq(这个可以多个^一起写) -->
+    <ul>
+        <li></li>
+    </ul>
+    <blockquote></blockquote>
+    <!-- 标签*number 快速生成number个标签 div*5 -->
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <!-- $ 自增符号 ul>li*5{$} -->
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    <li>4</li>
+        <li>5</li>
+    </ul>
+    <!-- 标签+{内容} 快速生成内容 div{hello world} -->
+    <div>hello world</div>
+    <!-- 自定义属性内容：ul>li>a[href='#'] -->
+    <ul>
+        <li><a href="#"></a></li>
+    </ul>
+    <!-- 自定义属性：ul>li>test[data-content='this_is_data_value'] -->
+    <ul>
+        <li>
+            <test data-content="this_is_data_value"></test>
+        </li>
+    </ul>
+    <!-- shift+Alt+F——格式化文档(主要是对编写不规范的代码进行格式化，比如没对齐，没缩进等) -->
+</body>
+</html>
