@@ -138,3 +138,49 @@ apply 、 call 、bind 三者都可以利用后续参数传参；
 bind 是返回对应函数，便于稍后调用；apply 、call 则是立即调用 。
 多次`bind`只有第一次有效。
 bind详细参考地址：《MDN：Function.prototype.bind()》
+
+* 手写call函数
+```
+Function.prototype.myCall = function (context) {
+  if (typeof this != 'function') {
+    return 'type Error'
+  }
+  let args = [...arguments].slice(1)
+  context = context || window
+  context.fn = this
+  let result = null
+  result = context.fn(...args)
+  delete context.fn
+  return result
+}
+```
+* 手写apply函数
+```
+Funciton.prototype.myApply = function (context) {
+  if (typeof this != 'function') {
+    return 'type error'
+  }
+  context = context || window
+  context.fn = this
+  if (argumetns[1]) {
+    result = context.fn(arguments)
+  } else {
+    result = context.fn()
+  }
+  return result
+}
+```
+* 手写 new 方法
+```
+function myNew() {
+  let obj = Object.create(null) // 创建新对象
+  let context = Array.prototype.shift.call(arguments) // 获取构造函数
+  if (typeof context === 'function') {
+    Object.setPrototypeOf(obj, context.prototype) //设置原型
+  } else {
+    Object.setPrototypeOf(obj, null)
+  }
+  let result = context.apply(obj, arguments)　// 改变this指向
+  return typeof result == 'object' ? result : obj
+}
+```
